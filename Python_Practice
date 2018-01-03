@@ -1,0 +1,39 @@
+def change(cash):
+    #cash = int
+    str_cash = str(cash)
+    if cash == 1 or cash == 3:
+        print('impossible')
+        return False
+    else:
+        if int(str_cash[-1]) == 1 or  int(str_cash[-1]) == 3: #int와 str을 비교하는 실수 하지말자
+            L1 = (cash//10)-1
+            L2 = cash-(L1*10 ) # maybe 13 or 11
+            L3 = (L2-5)/2 #for two
+            print('two : %d \n five : %d \n ten : %d' % (L3, 1, L1))
+            return {
+                'two':L3,
+                'five' : '1',
+                'ten':L1
+            }
+        elif int(str_cash[-1]) == 5 or  int(str_cash[-1]) ==7 or  int(str_cash[-1]) ==9: # 여기도 or이 작동하지 않는다. ==> int와 str을 비교해버림
+            L1 = cash//10
+            L2 = cash - (L1*10)
+            L3 = (L2-5)/2
+            print('two : %d \n five : %d \n ten : %d' % (L3, 1, L1))
+            return {
+                'two':L3,
+                'five':'1',
+                'ten':L1
+            }
+        else:
+            L1 = cash//10
+            L2 = cash-(L1*10)
+            L3 = L2/2
+            print('two : %d \n five : %d \n ten : %d' %(L3,0,L1))
+            return {
+                'two':L3,
+                'five':'0',
+                'ten':L1
+            }
+
+change(1227)
